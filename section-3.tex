@@ -1,0 +1,23 @@
+\section{Section 3}
+Below you can find an example of a Table \ref{table:MLlandscape} and how you can change the orientation of a page using "landscape" tag:
+
+\begin{landscape}
+
+\begin{table}[!htb]
+\centering
+\caption{Caption.}
+%\resizebox{\linewidth}{!}{%
+    \begin{tabular}{p{3cm}p{3cm}p{3cm}}
+    \toprule
+    \textbf{Title 1} & \textbf{Title 2}& \textbf{Title 3} \\
+    \toprule
+    AAA & BBB & CCC \\
+    \midrule
+    DDD & EEE & FFF \\
+    \midrule
+    \end{tabular}
+%}
+\label{table:MLlandscape}
+\end{table}
+
+\end{landscape}

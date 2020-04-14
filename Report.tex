@@ -1,0 +1,73 @@
+% LaTeX template for SAS Deliverables and Reports
+% Based on the template prepared by Luigi Freda and Alessandro De Luca (UOR)
+% November 2008
+% edited by Raul Sena Ferreira (LAAS)
+% November 2019
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{sas} % INCLUDED in the directory
+\usepackage{graphicx}
+%\usepackage[none]{hyphenat}
+%\usepackage{longtable}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{color}
+\usepackage{colortbl} %required for color tables in report cover page
+\usepackage{sectsty}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amsthm}
+\usepackage{threeparttable}
+\usepackage{xargs}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{dblfloatfix}
+\usepackage{adjustbox}
+\usepackage{algpseudocode,algorithm}
+\usepackage{algorithmicx}
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+\pgfplotsset{compat=newest}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\color{black} % set default text color
+\sectionfont{\centering}
+\pdfinfo{
+/Title (Your title)
+/Author (author 1, author 2...)
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%             ********     COVER PAGE    **********
+\MakeCoverPage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%            ******   EXECUTIVE SUMMARY    ******
+\input{summary.tex}
+\thispagestyle{fancy}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%           ********   TABLE OF CONTENTS    ********
+\phantomsection
+\renewcommand{\contentsname}{\centering {\bf TABLE OF CONTENTS}}
+%{\em \tableofcontents} %italic style
+{\bf \tableofcontents}      %boldface style
+%\tableofcontents           %roman style
+%\thispagestyle{fancy}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%             ******        REPORT          ********
+\pagestyle{fancy}
+\input{section-1.tex}
+\input{section-2.tex}
+\input{section-3.tex}
+\input{section-4.tex}
+\input{section-5.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%           ******      BIBLIOGRAPHY      ********
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{amsplain}
+\bibliography{Bibliography}
+
+\end{document}

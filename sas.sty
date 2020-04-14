@@ -1,0 +1,188 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Created by: Luigi Freda, luigifreda@gmail.com
+%%% Edited by: Raul Sena Ferreira, raulsenaferreira@gmail.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\filename{SAS}
+\def\fileversion{2.0}
+\def\filedate{12/14/2019}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{SAS}[\filedate\space\fileversion\space LaTeX2e
+package] \typeout{Package: `\filename' - Style file for SAS Reports 
+designed by Luigi Freda and edited by Raul Sena Ferreira - \fileversion\space <\filedate>}
+
+\textwidth 17 true cm %
+\textheight 20.5 true cm %
+\topmargin -2 true cm %
+\oddsidemargin -0.7 true cm %
+\evensidemargin -0.7 true cm %
+
+\DeclareMathSizes{10.95}{14}{8}{5} % For size 11 text;  default values for 11pt-> \DeclareMathSizes{10.95}{11}{8}{5}
+
+% Set Arial Fonts %%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\rmdefault}{phv} % Arial
+\renewcommand{\sfdefault}{phv} % Arial
+
+% Define Logos  %%%%%%%%%%%%%%%%%%%%%%
+
+\def\LogoSAS{\includegraphics[scale=0.4]{LogosReport/SAS-logo1.png}}
+\def\LogoSASSmall{\includegraphics[scale=0.1]{LogosReport/SAS-logo1.png}}
+\def\LogoEU{\includegraphics[scale=0.7]{LogosReport/EU-logo1.png}}
+\def\LogoEUSmall{\includegraphics[scale=0.8]{LogosReport/EU-small.png}} %SASReportLateX/
+
+% Set SAS Color  %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{colortbl} %required for the colored tables on cover page
+\definecolor{BluePh}{rgb}{0.0039,0.3804,0.5294}
+\definecolor{OrangePh}{rgb}{0.9490,0.3922,0}
+
+% Set Header  %%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+\setlength\headheight{60.6pt}
+\fancyhead[L]{\mbox{\LogoSASSmall}}
+\fancyhead[C]{\textcolor{black}{European Training Network on\\
+Safer Autonomous Systems (SAS)}}
+\fancyhead[R]{\textcolor{black}{P a g e  I \textbf{\thepage}}}
+\renewcommand{\headrulewidth}{0pt}
+
+% Set Footer  %%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyfoot[L]{\vspace{-15pt} \mbox{\LogoEUSmall}}
+\fancyfoot[C]{\textcolor{black}{This project has received funding from the European Union's\\
+EU Framework Programme for Research and Innovation\\
+Horizon 2020 under Grant Agreement No. 812.788.\\
+https://etn-sas.eu/
+}}
+\renewcommand{\footrulewidth}{0pt}
+\footskip 102pt
+\fancyfootoffset[R]{2in}
+
+
+% Hyperref Settings %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linktoc=none,linkcolor=BluePh,citecolor=BluePh,urlcolor=BluePh,pdfnewwindow=true}
+
+% Table of Contents  %%%%%%%%%%%%%%%%%%%%%%%%
+
+%\def\tocrule{\addtocontents{toc}{\protect\smallskip\hrule\protect\smallskip}}
+
+%\renewcommand{\@dotsep}{0}
+
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    %\vskip \z@ \@plus.2\p@
+    \medskip
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+     {#4}\nobreak
+     ~
+     \leaders
+     %\hbox{$\m@th \mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}
+     \hrule height 0.5pt
+     \hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+     \par}%
+  \fi}
+
+\def\l@chap{\@dottedtocline{1}{0.5em}{3.5em}}
+\def\l@section{\@dottedtocline{2}{1.0em}{2.3em}}
+\def\l@subsection{\@dottedtocline{3}{8.3em}{3.2em}}
+\def\l@subsubsection{\@dottedtocline{4}{12.5em}{4.1em}}
+%\setcounter{tocdepth}{3} \setcounter{secnumdepth}{2}
+
+%%% User "interface" %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\FPNumber}[1]{\def\@FPNumber{#1}}
+\newcommand*{\SASTitle}[1]{\def\@PhTitle{#1}}
+\newcommand*{\SASTitleLong}[1]{\def\@PhTitleLong{#1}}
+\newcommand*{\SASSubTitle}[1]{\def\@PhSubTitle{#1}}
+
+\newcommand*{\SASBox}[3]{%
+ \def\@PhBoxFirstLine{#1}%
+ \def\@PhBoxSecondLine{#2}%
+ \def\@PhBoxThirdLine{#3}
+}
+
+\newcommand*{\SASFirstTable}[6]{%
+ \def\@PhTableOneOne{#1} \def\@PhTableOneTwo{#2}    %
+ \def\@PhTableTwoOne{#3} \def\@PhTableTwoTwo{#4}    %
+ \def\@PhTableThreeOne{#5} \def\@PhTableThreeTwo{#6}%
+}
+
+\newcommand*{\DisseminationLevel}[1]{\def\@DisseminationLevel{#1}}
+
+\newcommand*{\SASCoFunding}[2]{%
+ \def\@PhCoFundingOne{#1} %
+ \def\@PhCoFundingTwo{#2} %
+}
+
+\FPNumber{} 
+\SASTitle{} \SASTitleLong{}\SASSubTitle{}
+\SASBox{}{}{} \SASFirstTable{}{}{}{}{}{}
+\SASCoFunding{}{} \DisseminationLevel{}
+
+\def\@PUentry{PU}
+\def\@PPentry{PP}
+\def\@REentry{RE}
+\def\@COentry{CO}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Main Command  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\MakeCoverPage{
+ \pagestyle{empty}
+
+ \newcommand\PhLarge{\bf \Large}
+ \newcommand\Phlarge{\large}
+ \newcommand\Phnormalsize{\small }
+ \newcommand\PhnormalsizeB{\bf \small}
+
+%%%%%%%%%%%%%%%%%%
+%%% Cover Page %%%%%%%%
+%%%%%%%%%%%%%%%%%%
+
+% \begin{center}
+   %\begin{center}
+   %\leavevmode
+   \begin{center}
+   \mbox{\LogoSAS} 
+   \hfill 
+   \vspace{1cm}
+   \PhLarge \textcolor{black}{SAS Report (Number):\\Title of the report\\}
+   \vspace{1cm}
+   \PhnormalsizeB \textcolor{black} {
+    Author 1 \textsuperscript{\rm 1},
+Author 2 \textsuperscript{\rm 1},
+Author 3 \textsuperscript{\rm 2}\\
+\vspace{0.3cm}
+\textsuperscript{\rm 1}Institution 1\\
+\textsuperscript{\rm 2}Institution 2\\
+    }
+    \vspace{0.4cm}
+   \Phlarge \textcolor{black}{
+   European Training Network on\\
+Safer Autonomous Systems (SAS)}
+   \mbox{\LogoEU}
+   \end{center}
+
+   %\vspace{1cm}
+
+%%%%%%%%%%%%%%%%%%
+%%%   Cover Page Tables   %%%
+%%%%%%%%%%%%%%%%%%
+
+\setlength\arrayrulewidth{1.05pt}
+
+\clearpage
+
+}
+
+\endinput
